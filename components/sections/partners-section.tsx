@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { RevealGroup, RevealItem } from '@/components/shared/reveal';
 import { PartnerLogo } from '@/components/shared/partner-logo';
 import { partners } from '@/content/partners';
+import { pick } from '@/content/types';
 import { useLocale } from 'next-intl';
 
 export function PartnersSection() {
@@ -29,14 +30,16 @@ export function PartnersSection() {
           stagger={0.05}
         >
           {partners.map((p) => (
-            <RevealItem key={p.name}>
+            <RevealItem key={p.name.en}>
               <div
-                className="group flex h-28 flex-col items-center justify-center gap-2.5 rounded-2xl border border-border/60 bg-white px-4 text-center shadow-soft transition-all duration-400 hover:-translate-y-1 hover:shadow-lift"
-                title={p.name}
+                className="group flex h-32 flex-col items-center justify-center gap-3 rounded-2xl border border-border/60 bg-white px-4 text-center shadow-soft transition-all duration-400 hover:-translate-y-1 hover:shadow-lift"
+                title={pick(p.name, locale)}
               >
-                <PartnerLogo partner={p} />
-                <span className="line-clamp-1 text-[0.68rem] font-medium text-muted-foreground">
-                  {p.name}
+                <div className="flex h-12 items-center justify-center">
+                  <PartnerLogo partner={p} locale={locale} />
+                </div>
+                <span className="line-clamp-2 text-[0.7rem] font-medium text-muted-foreground">
+                  {pick(p.name, locale)}
                 </span>
               </div>
             </RevealItem>
