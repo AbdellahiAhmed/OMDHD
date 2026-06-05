@@ -65,7 +65,7 @@ export const partners: Partner[] = [
   },
   {
     name: { ar: 'اللجنة الوطنية لحقوق الإنسان', fr: 'Commission Nationale des Droits de l’Homme', en: 'National Human Rights Commission' },
-    category: 'national', monogram: 'CNDH', logo: '/images/partners/cndh.svg',
+    category: 'national', monogram: 'CNDH', logo: '/images/partners/cndh.png',
   },
 
   // Civil society & regional partners
