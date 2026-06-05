@@ -3,19 +3,16 @@ import type { Partner } from './types';
 /**
  * Partner network.
  *
- * IMPORTANT (for reuse / resale): the international logos below are official,
- * legally protected emblems (UN agencies, EU, World Bank…). Displaying them
- * implies a genuine partnership or support relationship. For any live client,
- * show ONLY the organizations they actually partner with, and follow each
- * brand's usage guidelines / obtain permission.
+ * IMPORTANT (for reuse / resale): these official emblems (UN agencies, EU,
+ * World Bank, African Union, FIDH, the Mauritanian Red Crescent and national
+ * emblem) are legally protected. Displaying them implies a genuine partnership.
+ * For any live client, show ONLY the organizations they actually partner with,
+ * follow each brand's usage guidelines, and obtain permission.
  *
- * The national & civil-society entries are illustrative placeholders. Where a
- * real public emblem exists it is used (Mauritanian Red Crescent, national
- * emblem); the others fall back to a styled monogram until the client provides
- * their real partner logos (drop files in /public/images/partners and set `logo`).
+ * To add a partner's logo: drop the file in /public/images/partners and set `logo`.
  */
 export const partners: Partner[] = [
-  // International institutions — official logos
+  // International institutions
   {
     name: { ar: 'برنامج الأمم المتحدة الإنمائي', fr: 'PNUD', en: 'UNDP' },
     category: 'international', monogram: 'UNDP', logo: '/images/partners/undp.svg', url: 'https://www.undp.org',
@@ -44,8 +41,16 @@ export const partners: Partner[] = [
     name: { ar: 'البنك الدولي', fr: 'Banque Mondiale', en: 'World Bank' },
     category: 'international', monogram: 'WB', logo: '/images/partners/worldbank.svg', url: 'https://www.worldbank.org',
   },
+  {
+    name: { ar: 'اليونسكو', fr: 'UNESCO', en: 'UNESCO' },
+    category: 'international', monogram: 'UNESCO', logo: '/images/partners/unesco.svg', url: 'https://www.unesco.org',
+  },
+  {
+    name: { ar: 'منظمة الأغذية والزراعة (الفاو)', fr: 'FAO', en: 'FAO' },
+    category: 'international', monogram: 'FAO', logo: '/images/partners/fao.svg', url: 'https://www.fao.org',
+  },
 
-  // National partners
+  // National (Mauritanian) institutions
   {
     name: { ar: 'الهلال الأحمر الموريتاني', fr: 'Croissant Rouge Mauritanien', en: 'Mauritanian Red Crescent' },
     category: 'national', monogram: 'CRM', logo: '/images/partners/redcrescent.svg',
@@ -55,22 +60,22 @@ export const partners: Partner[] = [
     category: 'national', monogram: 'MAS', logo: '/images/partners/mauritania-emblem.svg',
   },
   {
-    name: { ar: 'اللجنة الوطنية لحقوق الإنسان', fr: 'Commission Nationale des Droits de l’Homme', en: 'National Human Rights Commission' },
-    category: 'national', monogram: 'CNDH',
+    name: { ar: 'جامعة نواكشوط', fr: 'Université de Nouakchott', en: 'University of Nouakchott' },
+    category: 'national', monogram: 'UNA', logo: '/images/partners/university.jpg',
   },
   {
-    name: { ar: 'جامعة نواكشوط', fr: 'Université de Nouakchott', en: 'University of Nouakchott' },
-    category: 'national', monogram: 'UNA',
+    name: { ar: 'اللجنة الوطنية لحقوق الإنسان', fr: 'Commission Nationale des Droits de l’Homme', en: 'National Human Rights Commission' },
+    category: 'national', monogram: 'CNDH', logo: '/images/partners/cndh.svg',
   },
 
-  // Civil society (illustrative placeholders — replace with the client's real partners)
+  // Civil society & regional partners
   {
-    name: { ar: 'شبكة المنظمات غير الحكومية للتنمية', fr: 'Réseau des ONG de Développement', en: 'Development NGO Network' },
-    category: 'civil', monogram: 'RND',
+    name: { ar: 'الفيدرالية الدولية لحقوق الإنسان', fr: 'FIDH', en: 'FIDH' },
+    category: 'civil', monogram: 'FIDH', logo: '/images/partners/fidh.svg', url: 'https://www.fidh.org',
   },
   {
-    name: { ar: 'منتدى المنظمات المدنية', fr: 'Forum des Organisations Civiles', en: 'Civil Organizations Forum' },
-    category: 'civil', monogram: 'FOC',
+    name: { ar: 'الاتحاد الأفريقي', fr: 'Union Africaine', en: 'African Union' },
+    category: 'civil', monogram: 'AU', logo: '/images/partners/africanunion.svg', url: 'https://au.int',
   },
 ];
 
