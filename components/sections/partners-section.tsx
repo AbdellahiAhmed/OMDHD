@@ -5,6 +5,7 @@ import { Container } from '@/components/shared/container';
 import { SectionHeading } from '@/components/shared/section-heading';
 import { Button } from '@/components/ui/button';
 import { RevealGroup, RevealItem } from '@/components/shared/reveal';
+import { PartnerLogo } from '@/components/shared/partner-logo';
 import { partners } from '@/content/partners';
 import { useLocale } from 'next-intl';
 
@@ -30,13 +31,11 @@ export function PartnersSection() {
           {partners.map((p) => (
             <RevealItem key={p.name}>
               <div
-                className="group flex h-24 flex-col items-center justify-center gap-2 rounded-2xl border border-border/60 bg-white px-4 text-center shadow-soft transition-all duration-400 hover:-translate-y-1 hover:shadow-lift"
+                className="group flex h-28 flex-col items-center justify-center gap-2.5 rounded-2xl border border-border/60 bg-white px-4 text-center shadow-soft transition-all duration-400 hover:-translate-y-1 hover:shadow-lift"
                 title={p.name}
               >
-                <span className="flex size-11 items-center justify-center rounded-xl bg-blue/8 text-base font-extrabold text-blue transition-colors group-hover:bg-blue group-hover:text-cloud">
-                  {p.monogram}
-                </span>
-                <span className="line-clamp-1 text-[0.7rem] font-medium text-muted-foreground">
+                <PartnerLogo partner={p} />
+                <span className="line-clamp-1 text-[0.68rem] font-medium text-muted-foreground">
                   {p.name}
                 </span>
               </div>
