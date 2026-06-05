@@ -6,6 +6,7 @@ import { Container } from '@/components/shared/container';
 import { PageHero } from '@/components/shared/page-hero';
 import { Button } from '@/components/ui/button';
 import { Reveal, RevealGroup, RevealItem } from '@/components/shared/reveal';
+import { PartnerLogo } from '@/components/shared/partner-logo';
 import { partners, partnerCategories } from '@/content/partners';
 import { buildMetadata } from '@/lib/seo';
 
@@ -62,9 +63,9 @@ export default async function PartnersPage({
                   {list.map((p) => (
                     <RevealItem key={p.name}>
                       <div className="group flex h-28 items-center gap-4 rounded-2xl border border-border/70 bg-white px-5 shadow-soft transition-all duration-400 hover:-translate-y-1 hover:shadow-lift">
-                        <span className="flex size-14 shrink-0 items-center justify-center rounded-xl bg-blue/8 text-lg font-extrabold text-blue transition-colors group-hover:bg-blue group-hover:text-cloud">
-                          {p.monogram}
-                        </span>
+                        <div className="flex h-14 w-16 shrink-0 items-center justify-center">
+                          <PartnerLogo partner={p} />
+                        </div>
                         <span className="text-sm font-semibold leading-tight text-ink">
                           {p.name}
                         </span>

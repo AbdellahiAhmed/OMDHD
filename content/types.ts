@@ -65,8 +65,10 @@ export type PartnerCategory = 'national' | 'international' | 'civil';
 export type Partner = {
   name: string;
   category: PartnerCategory;
-  /** short monogram used when no logo is available */
+  /** short monogram used as a fallback when no logo image is available */
   monogram: string;
+  /** path to a logo image under /public (svg/png); falls back to monogram */
+  logo?: string;
   url?: string;
 };
 
