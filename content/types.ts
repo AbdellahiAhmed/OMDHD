@@ -63,7 +63,7 @@ export type Publication = {
 export type PartnerCategory = 'national' | 'international' | 'civil';
 
 export type Partner = {
-  name: string;
+  name: Localized;
   category: PartnerCategory;
   /** short monogram used as a fallback when no logo image is available */
   monogram: string;

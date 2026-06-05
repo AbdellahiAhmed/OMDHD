@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Reveal, RevealGroup, RevealItem } from '@/components/shared/reveal';
 import { PartnerLogo } from '@/components/shared/partner-logo';
 import { partners, partnerCategories } from '@/content/partners';
+import { pick } from '@/content/types';
 import { buildMetadata } from '@/lib/seo';
 
 export async function generateMetadata({
@@ -61,13 +62,13 @@ export default async function PartnersPage({
                 </Reveal>
                 <RevealGroup className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4" stagger={0.06}>
                   {list.map((p) => (
-                    <RevealItem key={p.name}>
-                      <div className="group flex h-28 items-center gap-4 rounded-2xl border border-border/70 bg-white px-5 shadow-soft transition-all duration-400 hover:-translate-y-1 hover:shadow-lift">
-                        <div className="flex h-14 w-16 shrink-0 items-center justify-center">
-                          <PartnerLogo partner={p} />
+                    <RevealItem key={p.name.en}>
+                      <div className="group flex h-36 flex-col items-center justify-center gap-3.5 rounded-2xl border border-border/70 bg-white p-5 text-center shadow-soft transition-all duration-400 hover:-translate-y-1 hover:shadow-lift">
+                        <div className="flex h-14 items-center justify-center">
+                          <PartnerLogo partner={p} locale={locale} />
                         </div>
-                        <span className="text-sm font-semibold leading-tight text-ink">
-                          {p.name}
+                        <span className="line-clamp-2 text-sm font-semibold leading-tight text-ink">
+                          {pick(p.name, locale)}
                         </span>
                       </div>
                     </RevealItem>

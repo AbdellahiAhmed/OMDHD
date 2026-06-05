@@ -1,4 +1,4 @@
-import type { Partner } from '@/content/types';
+import { pick, type Partner } from '@/content/types';
 import { cn } from '@/lib/utils';
 
 /**
@@ -8,9 +8,11 @@ import { cn } from '@/lib/utils';
  */
 export function PartnerLogo({
   partner,
+  locale,
   className,
 }: {
   partner: Partner;
+  locale: string;
   className?: string;
 }) {
   if (partner.logo) {
@@ -18,10 +20,10 @@ export function PartnerLogo({
       // eslint-disable-next-line @next/next/no-img-element
       <img
         src={partner.logo}
-        alt={partner.name}
+        alt={pick(partner.name, locale)}
         loading="lazy"
         className={cn(
-          'h-9 w-auto max-w-[78%] object-contain opacity-70 grayscale transition duration-500 group-hover:opacity-100 group-hover:grayscale-0',
+          'h-12 w-auto max-w-[90%] object-contain opacity-80 grayscale transition duration-500 group-hover:opacity-100 group-hover:grayscale-0',
           className
         )}
       />
@@ -31,7 +33,7 @@ export function PartnerLogo({
   return (
     <span
       className={cn(
-        'flex h-12 min-w-12 items-center justify-center rounded-xl bg-blue/8 px-3 text-sm font-extrabold tracking-tight text-blue transition-colors group-hover:bg-blue group-hover:text-cloud',
+        'flex h-12 min-w-12 items-center justify-center rounded-xl bg-blue/8 px-4 text-base font-extrabold tracking-tight text-blue transition-colors group-hover:bg-blue group-hover:text-cloud',
         className
       )}
     >
