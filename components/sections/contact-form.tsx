@@ -57,39 +57,47 @@ export function ContactForm() {
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field label={t('name')} error={errors.name}>
+        <Field label={t('name')} htmlFor="contact-name" error={errors.name}>
           <Input
+            id="contact-name"
             value={values.name}
             onChange={(e) => set('name', e.target.value)}
             placeholder={t('namePlaceholder')}
             aria-invalid={!!errors.name}
+            aria-describedby={errors.name ? 'contact-name-error' : undefined}
           />
         </Field>
-        <Field label={t('email')} error={errors.email}>
+        <Field label={t('email')} htmlFor="contact-email" error={errors.email}>
           <Input
+            id="contact-email"
             type="email"
             dir="ltr"
             value={values.email}
             onChange={(e) => set('email', e.target.value)}
             placeholder={t('emailPlaceholder')}
             aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? 'contact-email-error' : undefined}
           />
         </Field>
       </div>
-      <Field label={t('subject')} error={errors.subject}>
+      <Field label={t('subject')} htmlFor="contact-subject" error={errors.subject}>
         <Input
+          id="contact-subject"
           value={values.subject}
           onChange={(e) => set('subject', e.target.value)}
           placeholder={t('subjectPlaceholder')}
           aria-invalid={!!errors.subject}
+          aria-describedby={errors.subject ? 'contact-subject-error' : undefined}
         />
       </Field>
-      <Field label={t('message')} error={errors.message}>
+      <Field label={t('message')} htmlFor="contact-message" error={errors.message}>
         <Textarea
+          id="contact-message"
           value={values.message}
           onChange={(e) => set('message', e.target.value)}
           placeholder={t('messagePlaceholder')}
           aria-invalid={!!errors.message}
+          aria-describedby={errors.message ? 'contact-message-error' : undefined}
         />
       </Field>
 
@@ -103,18 +111,28 @@ export function ContactForm() {
 
 function Field({
   label,
+  htmlFor,
   error,
   children,
 }: {
   label: string;
+  htmlFor: string;
   error?: string;
   children: React.ReactNode;
 }) {
   return (
     <div>
-      <Label>{label}</Label>
+      <Label htmlFor={htmlFor}>{label}</Label>
       {children}
-      {error ? <p className="mt-1.5 text-xs font-medium text-destructive">{error}</p> : null}
+      {error ? (
+        <p
+          id={`${htmlFor}-error`}
+          role="alert"
+          className="mt-1.5 text-xs font-medium text-destructive"
+        >
+          {error}
+        </p>
+      ) : null}
     </div>
   );
 }

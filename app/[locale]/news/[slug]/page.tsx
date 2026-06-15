@@ -13,6 +13,7 @@ import { Reveal, RevealGroup, RevealItem } from '@/components/shared/reveal';
 import { news, getNewsBySlug } from '@/content/news';
 import { categoryLabels } from '@/content/labels';
 import { pick } from '@/content/types';
+import { siteConfig } from '@/content/site';
 import { formatDate } from '@/lib/utils';
 import { buildMetadata } from '@/lib/seo';
 
@@ -54,8 +55,31 @@ export default async function NewsDetailPage({
 
   const related = news.filter((n) => n.slug !== article.slug).slice(0, 3);
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    headline: pick(article.title, locale),
+    description: pick(article.excerpt, locale),
+    image: [article.cover],
+    datePublished: article.date,
+    dateModified: article.date,
+    inLanguage: locale,
+    articleSection: pick(categoryLabels[article.category], locale),
+    author: { '@type': 'Organization', name: 'OMDHD' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'OMDHD',
+      logo: { '@type': 'ImageObject', url: `${siteConfig.url}/favicon.svg` },
+    },
+    mainEntityOfPage: `${siteConfig.url}/${locale}/news/${article.slug}`,
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <PageHero
         eyebrow={pick(categoryLabels[article.category], locale)}
         title={pick(article.title, locale)}

@@ -58,29 +58,31 @@ export function VolunteerForm() {
     <form onSubmit={onSubmit} noValidate className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <Label>{t('fullName')}</Label>
-          <Input value={values.name} onChange={(e) => set('name', e.target.value)} aria-invalid={!!errors.name} />
-          {errors.name && <p className="mt-1.5 text-xs font-medium text-destructive">{errors.name}</p>}
+          <Label htmlFor="vol-name">{t('fullName')}</Label>
+          <Input id="vol-name" value={values.name} onChange={(e) => set('name', e.target.value)} aria-invalid={!!errors.name} aria-describedby={errors.name ? 'vol-name-error' : undefined} />
+          {errors.name && <p id="vol-name-error" role="alert" className="mt-1.5 text-xs font-medium text-destructive">{errors.name}</p>}
         </div>
         <div>
-          <Label>{t('email')}</Label>
-          <Input type="email" dir="ltr" value={values.email} onChange={(e) => set('email', e.target.value)} aria-invalid={!!errors.email} />
-          {errors.email && <p className="mt-1.5 text-xs font-medium text-destructive">{errors.email}</p>}
+          <Label htmlFor="vol-email">{t('email')}</Label>
+          <Input id="vol-email" type="email" dir="ltr" value={values.email} onChange={(e) => set('email', e.target.value)} aria-invalid={!!errors.email} aria-describedby={errors.email ? 'vol-email-error' : undefined} />
+          {errors.email && <p id="vol-email-error" role="alert" className="mt-1.5 text-xs font-medium text-destructive">{errors.email}</p>}
         </div>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <Label>{t('phone')}</Label>
-          <Input type="tel" dir="ltr" value={values.phone} onChange={(e) => set('phone', e.target.value)} />
+          <Label htmlFor="vol-phone">{t('phone')}</Label>
+          <Input id="vol-phone" type="tel" dir="ltr" value={values.phone} onChange={(e) => set('phone', e.target.value)} />
         </div>
         <div>
-          <Label>{t('area')}</Label>
+          <Label htmlFor="vol-area">{t('area')}</Label>
           <div className="relative">
             <select
+              id="vol-area"
               value={values.area}
               onChange={(e) => set('area', e.target.value)}
               aria-invalid={!!errors.area}
+              aria-describedby={errors.area ? 'vol-area-error' : undefined}
               className={cn(
                 'h-12 w-full appearance-none rounded-2xl border border-input bg-white px-4 text-sm text-ink shadow-sm transition-colors',
                 'focus-visible:border-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand/50',
@@ -94,13 +96,13 @@ export function VolunteerForm() {
             </select>
             <ChevronDown className="pointer-events-none absolute top-1/2 size-4 -translate-y-1/2 text-muted-foreground ltr:right-4 rtl:left-4" />
           </div>
-          {errors.area && <p className="mt-1.5 text-xs font-medium text-destructive">{errors.area}</p>}
+          {errors.area && <p id="vol-area-error" role="alert" className="mt-1.5 text-xs font-medium text-destructive">{errors.area}</p>}
         </div>
       </div>
 
       <div>
-        <Label>{t('motivation')}</Label>
-        <Textarea value={values.motivation} onChange={(e) => set('motivation', e.target.value)} placeholder={t('motivationPlaceholder')} />
+        <Label htmlFor="vol-motivation">{t('motivation')}</Label>
+        <Textarea id="vol-motivation" value={values.motivation} onChange={(e) => set('motivation', e.target.value)} placeholder={t('motivationPlaceholder')} />
       </div>
 
       <Button type="submit" size="lg" variant="secondary" disabled={sending} className="w-full sm:w-auto">
