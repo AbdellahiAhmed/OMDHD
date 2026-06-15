@@ -8,6 +8,7 @@ import {
   MapPin,
   Mail,
   Phone,
+  MessageCircle,
 } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { LogoMark } from './logo';
@@ -132,6 +133,18 @@ export function Footer() {
                 <Phone className="size-4 shrink-0 text-sand" />
                 <a href={`tel:${siteConfig.phoneHref}`} className="transition-colors hover:text-sand" dir="ltr">
                   {siteConfig.phone}
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <MessageCircle className="size-4 shrink-0 text-sand" />
+                <a
+                  href={siteConfig.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-sand"
+                  dir="ltr"
+                >
+                  WhatsApp
                 </a>
               </li>
             </ul>
