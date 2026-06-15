@@ -3,7 +3,9 @@
  * social links and the canonical URL. CMS-ready: replace with a settings document.
  */
 export const siteConfig = {
-  url: 'https://omdhd.org',
+  // Live deployment URL — drives metadataBase, canonical, OG/Twitter images,
+  // sitemap and JSON-LD. Swap to https://omdhd.org once that domain points to Vercel.
+  url: 'https://omdhd.vercel.app',
   email: 'contact@omdhd.org',
   phone: '+222 22 94 88 88',
   phoneHref: '+22222948888',
