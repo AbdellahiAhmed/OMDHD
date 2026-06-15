@@ -26,20 +26,27 @@ export function AreaCard({
         'group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/70 bg-white p-7 shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lift focus-visible:-translate-y-1.5'
       )}
     >
-      {/* Number watermark */}
-      <span className="pointer-events-none absolute -top-4 text-[6rem] font-black leading-none text-mist/60 transition-colors group-hover:text-mist ltr:right-3 rtl:left-3">
-        {String(index + 1).padStart(2, '0')}
-      </span>
-
-      <span
-        className={cn(
-          'relative flex size-16 items-center justify-center rounded-2xl ring-1 transition-transform duration-500 group-hover:scale-110',
-          accent.soft,
-          accent.ring
-        )}
-      >
-        <Icon name={area.icon} className={cn('size-8', accent.text)} />
-      </span>
+      {/* Header row: icon + a small, intentional index number (well inside padding) */}
+      <div className="relative flex items-center justify-between">
+        <span
+          className={cn(
+            'flex size-16 items-center justify-center rounded-2xl ring-1 transition-transform duration-500 group-hover:scale-110',
+            accent.soft,
+            accent.ring
+          )}
+        >
+          <Icon name={area.icon} className={cn('size-8', accent.text)} />
+        </span>
+        <span
+          className={cn(
+            'text-lg font-extrabold leading-none tabular-nums opacity-40 transition-opacity duration-500 group-hover:opacity-90',
+            accent.text
+          )}
+          aria-hidden="true"
+        >
+          {String(index + 1).padStart(2, '0')}
+        </span>
+      </div>
 
       <h3 className="relative mt-6 text-xl font-bold text-ink">
         {pick(area.title, locale)}
