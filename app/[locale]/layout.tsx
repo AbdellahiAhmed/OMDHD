@@ -62,7 +62,10 @@ export async function generateMetadata({
       description,
       images: ['/og-image.png'],
     },
-    icons: { icon: '/favicon.svg' },
+    icons: {
+      icon: [{ url: '/favicon.png', type: 'image/png' }],
+      apple: '/apple-touch-icon.png',
+    },
   };
 }
 
