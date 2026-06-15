@@ -101,7 +101,7 @@ export function Hero() {
 
           <motion.p
             {...fade(0.34)}
-            className="mt-10 inline-flex items-center gap-2.5 text-sm font-medium text-cloud/55"
+            className="mt-10 inline-flex items-center gap-2.5 text-sm font-medium text-cloud/70"
           >
             <ShieldCheck className="size-4 shrink-0 text-sand" />
             {trust}

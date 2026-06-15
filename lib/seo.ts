@@ -6,7 +6,7 @@ export function buildMetadata({
   title,
   description,
   path,
-  image = '/og-image.svg',
+  image = '/og-image.png',
 }: {
   locale: string;
   title: string;

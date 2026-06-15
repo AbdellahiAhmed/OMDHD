@@ -13,5 +13,5 @@ export const tajawal = Tajawal({
   subsets: ['arabic', 'latin'],
   variable: '--font-tajawal',
   display: 'swap',
-  weight: ['400', '500', '700', '800', '900'],
+  weight: ['400', '500', '700', '800'],
 });
