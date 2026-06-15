@@ -70,13 +70,15 @@ export default async function ValuesPage({
             {values.map((v, i) => (
               <RevealItem key={i} className="h-full">
                 <div className="group relative h-full overflow-hidden rounded-3xl border border-border/70 bg-white p-7 shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lift">
-                  <span className="pointer-events-none absolute -top-3 text-7xl font-black leading-none text-mist/60 ltr:right-2 rtl:left-2">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span className={`relative flex size-14 items-center justify-center rounded-2xl transition-colors ${accentMap[v.accent]}`}>
-                    <v.icon className="size-7" />
-                  </span>
-                  <h3 className="relative mt-6 text-xl font-bold text-ink">{v.title}</h3>
+                  <div className="flex items-center justify-between">
+                    <span className={`flex size-14 items-center justify-center rounded-2xl transition-colors ${accentMap[v.accent]}`}>
+                      <v.icon className="size-7" />
+                    </span>
+                    <span className="text-lg font-extrabold leading-none tabular-nums text-ink/15" aria-hidden="true">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <h3 className="mt-6 text-xl font-bold text-ink">{v.title}</h3>
                   <p className="relative mt-3 leading-relaxed text-muted-foreground">{v.text}</p>
                 </div>
               </RevealItem>
