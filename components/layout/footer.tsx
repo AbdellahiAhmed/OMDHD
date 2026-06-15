@@ -28,7 +28,7 @@ const socials = [
 export function Footer() {
   const t = useTranslations();
   const locale = useLocale();
-  const year = 2025;
+  const year = 2026;
 
   const colWork = [
     { key: 'areas', href: '/intervention-areas' },
