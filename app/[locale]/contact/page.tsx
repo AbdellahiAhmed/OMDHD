@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { MapPin, Mail, Phone, Clock } from 'lucide-react';
+import { MapPin, Mail, Phone, Clock, MessageCircle } from 'lucide-react';
 import { Container } from '@/components/shared/container';
 import { PageHero } from '@/components/shared/page-hero';
 import { ContactForm } from '@/components/sections/contact-form';
@@ -32,6 +32,7 @@ export default async function ContactPage({
     { icon: MapPin, label: t('addressLabel'), value: t('address') },
     { icon: Mail, label: t('emailLabel'), value: siteConfig.email, href: `mailto:${siteConfig.email}`, ltr: true },
     { icon: Phone, label: t('phoneLabel'), value: siteConfig.phone, href: `tel:${siteConfig.phoneHref}`, ltr: true },
+    { icon: MessageCircle, label: 'WhatsApp', value: siteConfig.phone, href: siteConfig.whatsapp, ltr: true },
     { icon: Clock, label: t('hoursLabel'), value: t('hours') },
   ];
 
@@ -64,6 +65,9 @@ export default async function ContactPage({
                         href={it.href}
                         className="mt-1 block font-semibold text-ink transition-colors hover:text-blue"
                         dir={it.ltr ? 'ltr' : undefined}
+                        {...(it.href.startsWith('http')
+                          ? { target: '_blank', rel: 'noopener noreferrer' }
+                          : {})}
                       >
                         {it.value}
                       </a>

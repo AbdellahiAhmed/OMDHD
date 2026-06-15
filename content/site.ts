@@ -5,8 +5,9 @@
 export const siteConfig = {
   url: 'https://omdhd.org',
   email: 'contact@omdhd.org',
-  phone: '+222 45 00 00 00',
-  phoneHref: '+22245000000',
+  phone: '+222 22 94 88 88',
+  phoneHref: '+22222948888',
+  whatsapp: 'https://wa.me/22222948888',
   address: {
     ar: 'نواكشوط، الجمهورية الإسلامية الموريتانية',
     fr: 'Nouakchott, République Islamique de Mauritanie',
