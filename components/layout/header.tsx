@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import {
   DropdownMenu,
@@ -29,30 +28,18 @@ const mainLinks = [
 export function Header() {
   const t = useTranslations('Nav');
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href);
 
   const identityActive = identityLinks.some((l) => isActive(l.href));
-  const light = !scrolled;
+  // The header sits on a constant deep-blue surface: it never transforms on
+  // scroll. It blends over the (blue) hero and stays a clean bar over light
+  // sections, so there is no jumpy scroll transition.
+  const light = true;
 
   return (
-    <header
-      className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-all duration-500',
-        scrolled
-          ? 'glass border-b border-border/60 py-2 shadow-soft'
-          : 'border-b border-transparent py-4'
-      )}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 bg-blue-800 py-3.5 shadow-[0_12px_30px_-16px_rgba(2,10,28,0.65)]">
       <div className="container flex items-center justify-between gap-4">
         <Logo tone={light ? 'light' : 'dark'} />
 
