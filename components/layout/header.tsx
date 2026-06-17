@@ -18,12 +18,12 @@ import { identityLinks } from '@/content/site';
 import { cn } from '@/lib/utils';
 
 const mainLinks = [
-  { key: 'areas', href: '/intervention-areas' },
-  { key: 'news', href: '/news' },
-  { key: 'reports', href: '/reports' },
-  { key: 'partners', href: '/partners' },
-  { key: 'gallery', href: '/gallery' },
-  { key: 'contact', href: '/contact' },
+  { key: 'areas', label: 'areasShort', href: '/intervention-areas' },
+  { key: 'news', label: 'newsShort', href: '/news' },
+  { key: 'reports', label: 'reportsShort', href: '/reports' },
+  { key: 'partners', label: 'partners', href: '/partners' },
+  { key: 'gallery', label: 'gallery', href: '/gallery' },
+  { key: 'contact', label: 'contact', href: '/contact' },
 ];
 
 export function Header() {
@@ -57,19 +57,19 @@ export function Header() {
         <Logo tone={light ? 'light' : 'dark'} />
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-0.5 xl:flex">
           {/* Identity dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger
               className={cn(
-                'inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.92rem] font-semibold outline-none transition-colors focus-visible:ring-2 focus-visible:ring-sand',
+                'inline-flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-[0.875rem] font-semibold outline-none transition-colors focus-visible:ring-2 focus-visible:ring-sand',
                 light
                   ? 'text-cloud/90 hover:bg-white/10 hover:text-cloud'
                   : 'text-ink hover:bg-mist',
                 identityActive && (light ? 'text-cloud' : 'text-blue')
               )}
             >
-              {t('identity')}
+              {t('identityShort')}
               <ChevronDown className="size-3.5 opacity-70" />
             </DropdownMenuTrigger>
             <DropdownMenuContent
@@ -98,17 +98,17 @@ export function Header() {
               key={l.key}
               href={l.href}
               className={cn(
-                'relative rounded-full px-3.5 py-2 text-[0.92rem] font-semibold transition-colors',
+                'relative whitespace-nowrap rounded-full px-3 py-2 text-[0.875rem] font-semibold transition-colors',
                 light
                   ? 'text-cloud/90 hover:bg-white/10 hover:text-cloud'
                   : 'text-ink hover:bg-mist',
                 isActive(l.href) &&
                   (light
-                    ? 'text-cloud after:absolute after:inset-x-3.5 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-sand'
-                    : 'text-blue after:absolute after:inset-x-3.5 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-sand')
+                    ? 'text-cloud after:absolute after:inset-x-3 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-sand'
+                    : 'text-blue after:absolute after:inset-x-3 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-sand')
               )}
             >
-              {t(l.key)}
+              {t(l.label)}
             </Link>
           ))}
         </nav>
@@ -124,7 +124,7 @@ export function Header() {
               {t('donate')}
             </Link>
           </Button>
-          <MobileNav />
+          <MobileNav tone={light ? 'light' : 'dark'} />
         </div>
       </div>
     </header>
