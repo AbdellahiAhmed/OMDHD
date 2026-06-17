@@ -24,7 +24,7 @@ const links = [
   { key: 'contact', href: '/contact' },
 ];
 
-export function MobileNav() {
+export function MobileNav({ tone = 'dark' }: { tone?: 'dark' | 'light' }) {
   const t = useTranslations('Nav');
   const locale = useLocale();
   const pathname = usePathname();
@@ -38,7 +38,12 @@ export function MobileNav() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
         <button
-          className="inline-flex size-11 items-center justify-center rounded-full border border-border text-ink transition-colors hover:bg-mist lg:hidden"
+          className={cn(
+            'inline-flex size-11 items-center justify-center rounded-full border transition-colors xl:hidden',
+            tone === 'light'
+              ? 'border-white/30 text-cloud hover:bg-white/10'
+              : 'border-border text-ink hover:bg-mist'
+          )}
           aria-label={t('openMenu')}
         >
           <Menu className="size-5" />

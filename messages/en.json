@@ -20,6 +20,10 @@
     "donate": "Donate",
     "volunteer": "Volunteer",
     "identity": "Institutional Identity",
+    "identityShort": "Identity",
+    "areasShort": "Our Work",
+    "newsShort": "News",
+    "reportsShort": "Reports",
     "menu": "Menu",
     "close": "Close",
     "openMenu": "Open menu"
