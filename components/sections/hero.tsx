@@ -56,23 +56,25 @@ export function Hero() {
           className="object-cover"
           style={{ objectPosition }}
         />
-        {/* directional blue wash — opaque behind the copy, clearing over the photo */}
+        {/* directional blue wash — dense only behind the copy, then clears so the
+            photograph reads naturally (light blue tint, not a heavy overlay) */}
         <div
           className="absolute inset-0"
           style={{
-            background: `linear-gradient(${washDir}, #04274d 0%, rgba(5,49,97,0.95) 30%, rgba(6,59,115,0.72) 58%, rgba(6,59,115,0.4) 100%)`,
+            background: `linear-gradient(${washDir}, #04274d 0%, rgba(4,39,77,0.9) 28%, rgba(5,49,97,0.5) 50%, rgba(6,59,115,0.1) 72%, rgba(6,59,115,0) 90%)`,
           }}
         />
-        {/* vertical depth: shade under the nav, deep blue down into the dune */}
+        {/* vertical depth: light shade up top, deep blue only at the very bottom to
+            meet the dune divider */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(to bottom, rgba(4,39,77,0.5) 0%, transparent 24%, transparent 56%, #053161 100%)',
+              'linear-gradient(to bottom, rgba(4,39,77,0.35) 0%, transparent 20%, transparent 64%, #053161 100%)',
           }}
         />
-        {/* mobile: extra tint so the copy stays readable over the full-bleed photo */}
-        <div className="absolute inset-0 bg-blue-900/45 lg:hidden" />
+        {/* mobile: a lighter tint keeps the copy readable over the full-bleed photo */}
+        <div className="absolute inset-0 bg-blue-900/35 lg:hidden" />
       </div>
 
       {/* fine gold seam at the very top */}
