@@ -40,16 +40,26 @@ export function Logo({
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            'text-lg font-extrabold tracking-tight',
+            'text-base font-extrabold tracking-tight sm:text-lg',
             tone === 'light' ? 'text-cloud' : 'text-blue'
           )}
         >
           {t('shortName')}
         </span>
+        {/* Full organization name (localized) */}
         <span
           className={cn(
-            'mt-1 max-w-[16rem] text-[0.66rem] font-medium leading-tight',
-            tone === 'light' ? 'text-cloud/70' : 'text-muted-foreground'
+            'mt-1 hidden max-w-[17rem] text-[0.6rem] font-semibold leading-[1.2] sm:block',
+            tone === 'light' ? 'text-cloud/85' : 'text-ink/85'
+          )}
+        >
+          {t('siteName')}
+        </span>
+        {/* Slogan */}
+        <span
+          className={cn(
+            'mt-1 hidden max-w-[17rem] text-[0.56rem] font-medium leading-tight sm:block',
+            tone === 'light' ? 'text-cloud/55' : 'text-muted-foreground'
           )}
         >
           {t('tagline')}
