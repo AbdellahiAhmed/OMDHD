@@ -56,25 +56,31 @@ export function Hero() {
           className="object-cover"
           style={{ objectPosition }}
         />
-        {/* directional blue wash — dense only behind the copy, then clears so the
-            photograph reads naturally (light blue tint, not a heavy overlay) */}
+        {/* DESKTOP: a light directional wash — dense only behind the copy, then
+            clears quickly so the photograph reads naturally (much less blue) */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 hidden lg:block"
           style={{
-            background: `linear-gradient(${washDir}, #04274d 0%, rgba(4,39,77,0.9) 28%, rgba(5,49,97,0.5) 50%, rgba(6,59,115,0.1) 72%, rgba(6,59,115,0) 90%)`,
+            background: `linear-gradient(${washDir}, rgba(4,39,77,0.82) 0%, rgba(4,39,77,0.5) 24%, rgba(5,49,97,0.2) 48%, rgba(6,59,115,0.04) 70%, rgba(6,59,115,0) 88%)`,
           }}
         />
-        {/* vertical depth: light shade up top, deep blue only at the very bottom to
-            meet the dune divider */}
+        {/* MOBILE: a vertical wash — readable behind the stacked copy near the top,
+            clearing toward the photo below (no flat blue blanket) */}
+        <div
+          className="absolute inset-0 lg:hidden"
+          style={{
+            background:
+              'linear-gradient(to bottom, rgba(4,39,77,0.7) 0%, rgba(4,39,77,0.46) 40%, rgba(4,39,77,0.2) 68%, rgba(5,49,97,0.38) 90%, #053161 100%)',
+          }}
+        />
+        {/* deep blue only at the very bottom to meet the dune divider */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(to bottom, rgba(4,39,77,0.35) 0%, transparent 20%, transparent 64%, #053161 100%)',
+              'linear-gradient(to bottom, rgba(4,39,77,0.12) 0%, transparent 16%, transparent 74%, #053161 100%)',
           }}
         />
-        {/* mobile: a lighter tint keeps the copy readable over the full-bleed photo */}
-        <div className="absolute inset-0 bg-blue-900/35 lg:hidden" />
       </div>
 
       {/* fine gold seam at the very top */}
@@ -99,14 +105,14 @@ export function Hero() {
 
           <motion.h1
             {...fade(0.08)}
-            className="h-display mt-7 whitespace-pre-line text-balance text-[2.8rem] leading-[1.04] text-cloud drop-shadow-sm sm:text-6xl lg:text-[4.5rem]"
+            className="h-display mt-7 whitespace-pre-line text-balance text-[2.8rem] leading-[1.04] text-cloud [text-shadow:0_2px_18px_rgba(2,12,30,0.45)] sm:text-6xl lg:text-[4.5rem]"
           >
             {t('title')}
           </motion.h1>
 
           <motion.p
             {...fade(0.16)}
-            className="mt-7 max-w-xl text-pretty text-lg leading-relaxed text-cloud/85 lg:text-xl"
+            className="mt-7 max-w-xl text-pretty text-lg leading-relaxed text-cloud/90 [text-shadow:0_1px_12px_rgba(2,12,30,0.55)] lg:text-xl"
           >
             {t('subtitle')}
           </motion.p>
