@@ -12,8 +12,6 @@ const staticPaths = [
   '/values',
   '/intervention-areas',
   '/news',
-  '/reports',
-  '/partners',
   '/gallery',
   '/contact',
   '/donate',

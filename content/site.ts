@@ -9,6 +9,14 @@ export const siteConfig = {
   email: 'contact@omdhd.org',
   phone: '+222 22 94 88 88',
   phoneHref: '+22222948888',
+  phone2: '+222 46 40 29 01',
+  phone2Href: '+22246402901',
+  /** Named direct contact line (staff member), shown alongside the general numbers. */
+  contact2: {
+    name: { ar: 'بنكيلي', fr: 'Bankeily', en: 'Bankeily' },
+    phone: '+222 44 05 06 06',
+    phoneHref: '+22244050606',
+  },
   whatsapp: 'https://wa.me/22222948888',
   address: {
     ar: 'نواكشوط، الجمهورية الإسلامية الموريتانية',
@@ -22,7 +30,7 @@ export const siteConfig = {
     linkedin: 'https://linkedin.com/',
     youtube: 'https://youtube.com/',
   },
-  founded: 2015,
+  founded: 2026,
 } as const;
 
 /** Primary navigation model — labels resolved via next-intl `Nav` namespace. */

@@ -18,8 +18,6 @@ const links = [
   { key: 'values', href: '/values' },
   { key: 'areas', href: '/intervention-areas' },
   { key: 'news', href: '/news' },
-  { key: 'reports', href: '/reports' },
-  { key: 'partners', href: '/partners' },
   { key: 'gallery', href: '/gallery' },
   { key: 'contact', href: '/contact' },
 ];

@@ -6,7 +6,6 @@ import { AreasSection } from '@/components/sections/areas-section';
 import { LatestNews } from '@/components/sections/latest-news';
 import { VMV } from '@/components/sections/vmv';
 import { Mauritania } from '@/components/sections/mauritania';
-import { PartnersSection } from '@/components/sections/partners-section';
 import { CtaBand } from '@/components/sections/cta-band';
 import { Newsletter } from '@/components/sections/newsletter';
 
@@ -27,7 +26,6 @@ export default async function HomePage({
       <LatestNews />
       <VMV />
       <Mauritania />
-      <PartnersSection />
       <CtaBand />
       <Newsletter />
     </>

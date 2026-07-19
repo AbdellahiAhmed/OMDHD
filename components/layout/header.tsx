@@ -19,8 +19,6 @@ import { cn } from '@/lib/utils';
 const mainLinks = [
   { key: 'areas', label: 'areasShort', href: '/intervention-areas' },
   { key: 'news', label: 'newsShort', href: '/news' },
-  { key: 'reports', label: 'reportsShort', href: '/reports' },
-  { key: 'partners', label: 'partners', href: '/partners' },
   { key: 'gallery', label: 'gallery', href: '/gallery' },
   { key: 'contact', label: 'contact', href: '/contact' },
 ];

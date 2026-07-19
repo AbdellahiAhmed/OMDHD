@@ -9,7 +9,7 @@ export const news: NewsArticle[] = [
   {
     slug: 'human-rights-training-nouakchott',
     category: 'training',
-    date: '2025-05-18',
+    date: '2026-05-18',
     readingTime: 4,
     cover: IMG.news[0],
     featured: true,

@@ -33,7 +33,6 @@ export function Footer() {
   const colWork = [
     { key: 'areas', href: '/intervention-areas' },
     { key: 'news', href: '/news' },
-    { key: 'reports', href: '/reports' },
     { key: 'gallery', href: '/gallery' },
   ];
   const colIdentity = [
@@ -45,7 +44,6 @@ export function Footer() {
   const colInvolve = [
     { key: 'donate', href: '/donate' },
     { key: 'volunteer', href: '/volunteer' },
-    { key: 'partners', href: '/partners' },
     { key: 'contact', href: '/contact' },
   ];
 
@@ -129,11 +127,19 @@ export function Footer() {
                   {siteConfig.email}
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="size-4 shrink-0 text-sand" />
-                <a href={`tel:${siteConfig.phoneHref}`} className="transition-colors hover:text-sand" dir="ltr">
-                  {siteConfig.phone}
-                </a>
+              <li className="flex items-start gap-3">
+                <Phone className="mt-0.5 size-4 shrink-0 text-sand" />
+                <div className="flex flex-col gap-1">
+                  <a href={`tel:${siteConfig.phoneHref}`} className="transition-colors hover:text-sand" dir="ltr">
+                    {siteConfig.phone}
+                  </a>
+                  <a href={`tel:${siteConfig.phone2Href}`} className="transition-colors hover:text-sand" dir="ltr">
+                    {siteConfig.phone2}
+                  </a>
+                  <a href={`tel:${siteConfig.contact2.phoneHref}`} className="transition-colors hover:text-sand" dir="ltr">
+                    {pick(siteConfig.contact2.name, locale)}: {siteConfig.contact2.phone}
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <MessageCircle className="size-4 shrink-0 text-sand" />

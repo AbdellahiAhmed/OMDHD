@@ -6,6 +6,7 @@ import { PageHero } from '@/components/shared/page-hero';
 import { ContactForm } from '@/components/sections/contact-form';
 import { Reveal } from '@/components/shared/reveal';
 import { siteConfig } from '@/content/site';
+import { pick } from '@/content/types';
 import { buildMetadata } from '@/lib/seo';
 
 export async function generateMetadata({
@@ -32,6 +33,14 @@ export default async function ContactPage({
     { icon: MapPin, label: t('addressLabel'), value: t('address') },
     { icon: Mail, label: t('emailLabel'), value: siteConfig.email, href: `mailto:${siteConfig.email}`, ltr: true },
     { icon: Phone, label: t('phoneLabel'), value: siteConfig.phone, href: `tel:${siteConfig.phoneHref}`, ltr: true },
+    { icon: Phone, label: t('phoneLabel'), value: siteConfig.phone2, href: `tel:${siteConfig.phone2Href}`, ltr: true },
+    {
+      icon: Phone,
+      label: pick(siteConfig.contact2.name, locale),
+      value: siteConfig.contact2.phone,
+      href: `tel:${siteConfig.contact2.phoneHref}`,
+      ltr: true,
+    },
     { icon: MessageCircle, label: 'WhatsApp', value: siteConfig.phone, href: siteConfig.whatsapp, ltr: true },
     { icon: Clock, label: t('hoursLabel'), value: t('hours') },
   ];
@@ -51,8 +60,8 @@ export default async function ContactPage({
           <div>
             <h2 className="h-display text-2xl text-ink">{t('infoTitle')}</h2>
             <div className="mt-8 space-y-4">
-              {info.map((it) => (
-                <Reveal key={it.label} className="flex items-start gap-4 rounded-2xl border border-border/70 bg-white p-5 shadow-soft">
+              {info.map((it, i) => (
+                <Reveal key={`${it.label}-${i}`} className="flex items-start gap-4 rounded-2xl border border-border/70 bg-white p-5 shadow-soft">
                   <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-blue/8">
                     <it.icon className="size-6 text-blue" />
                   </span>
