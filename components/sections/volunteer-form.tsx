@@ -16,6 +16,7 @@ export function VolunteerForm() {
   const [errors, setErrors] = useState<Record<string, string | undefined>>({});
   const [sending, setSending] = useState(false);
   const [done, setDone] = useState(false);
+  const [sendError, setSendError] = useState(false);
 
   const areas = [t('area1'), t('area2'), t('area3'), t('area4')];
 
@@ -38,9 +39,20 @@ export function VolunteerForm() {
     ev.preventDefault();
     if (!validate()) return;
     setSending(true);
-    await new Promise((r) => setTimeout(r, 900));
-    setSending(false);
-    setDone(true);
+    setSendError(false);
+    try {
+      const res = await fetch('/api/volunteer', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+      if (!res.ok) throw new Error('send_failed');
+      setDone(true);
+    } catch {
+      setSendError(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   if (done) {
@@ -104,6 +116,12 @@ export function VolunteerForm() {
         <Label htmlFor="vol-motivation">{t('motivation')}</Label>
         <Textarea id="vol-motivation" value={values.motivation} onChange={(e) => set('motivation', e.target.value)} placeholder={t('motivationPlaceholder')} />
       </div>
+
+      {sendError ? (
+        <p role="alert" className="text-sm font-medium text-destructive">
+          {tc('errorSend')}
+        </p>
+      ) : null}
 
       <Button type="submit" size="lg" variant="secondary" disabled={sending} className="w-full sm:w-auto">
         <Send className="size-4" />

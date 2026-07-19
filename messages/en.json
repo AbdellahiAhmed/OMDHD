@@ -262,7 +262,8 @@
     "sending": "Sending…",
     "success": "Your message has been received. We'll get back to you soon.",
     "errorRequired": "This field is required.",
-    "errorEmail": "Please enter a valid email address."
+    "errorEmail": "Please enter a valid email address.",
+    "errorSend": "We couldn't send your message. Please try again, or contact us directly."
   },
   "DonatePage": {
     "eyebrow": "Donate",

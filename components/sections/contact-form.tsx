@@ -16,6 +16,7 @@ export function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [sending, setSending] = useState(false);
   const [done, setDone] = useState(false);
+  const [sendError, setSendError] = useState(false);
 
   function set<K extends keyof typeof values>(k: K, v: string) {
     setValues((p) => ({ ...p, [k]: v }));
@@ -37,10 +38,20 @@ export function ContactForm() {
     ev.preventDefault();
     if (!validate()) return;
     setSending(true);
-    // Demo only — wire to your API route / CMS / email service.
-    await new Promise((r) => setTimeout(r, 900));
-    setSending(false);
-    setDone(true);
+    setSendError(false);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+      if (!res.ok) throw new Error('send_failed');
+      setDone(true);
+    } catch {
+      setSendError(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   if (done) {
@@ -100,6 +111,12 @@ export function ContactForm() {
           aria-describedby={errors.message ? 'contact-message-error' : undefined}
         />
       </Field>
+
+      {sendError ? (
+        <p role="alert" className="text-sm font-medium text-destructive">
+          {t('errorSend')}
+        </p>
+      ) : null}
 
       <Button type="submit" size="lg" disabled={sending} className="w-full sm:w-auto">
         <Send className="size-4" />

@@ -4,9 +4,9 @@
  */
 export const siteConfig = {
   // Live deployment URL — drives metadataBase, canonical, OG/Twitter images,
-  // sitemap and JSON-LD. Swap to https://omdhd.org once that domain points to Vercel.
-  url: 'https://omdhd.vercel.app',
-  email: 'contact@omdhd.org',
+  // sitemap and JSON-LD.
+  url: 'https://omdhd.com',
+  email: 'contact@omdhd.com',
   phone: '+222 22 94 88 88',
   phoneHref: '+22222948888',
   phone2: '+222 46 40 29 01',

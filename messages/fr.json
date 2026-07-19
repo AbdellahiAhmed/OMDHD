@@ -262,7 +262,8 @@
     "sending": "Envoi en cours…",
     "success": "Votre message a bien été reçu, nous reviendrons vers vous prochainement.",
     "errorRequired": "Ce champ est obligatoire.",
-    "errorEmail": "Veuillez saisir une adresse e-mail valide."
+    "errorEmail": "Veuillez saisir une adresse e-mail valide.",
+    "errorSend": "Impossible d'envoyer votre message. Veuillez réessayer ou nous contacter directement."
   },
   "DonatePage": {
     "eyebrow": "Faire un don",
