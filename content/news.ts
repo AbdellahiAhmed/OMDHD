@@ -2,10 +2,11 @@ import type { NewsArticle } from './types';
 import { IMG } from './images';
 
 /**
- * Sample news & activities. Realistic institutional content for demonstration —
- * replace with live CMS entries. Arabic is canonical.
+ * All drafted activities, including ones not yet confirmed as having taken
+ * place. `news` below only publishes the ones the organization has actually
+ * run — add a real slug to `publishedSlugs` once an activity is confirmed.
  */
-export const news: NewsArticle[] = [
+const draftedNews: NewsArticle[] = [
   {
     slug: 'human-rights-training-nouakchott',
     category: 'training',
@@ -224,6 +225,11 @@ export const news: NewsArticle[] = [
     },
   },
 ];
+
+/** Activities confirmed as actually having taken place. */
+const publishedSlugs = ['human-rights-training-nouakchott'];
+
+export const news: NewsArticle[] = draftedNews.filter((n) => publishedSlugs.includes(n.slug));
 
 export function getNewsBySlug(slug: string) {
   return news.find((n) => n.slug === slug);

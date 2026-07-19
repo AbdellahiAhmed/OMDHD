@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl';
 import { Inbox } from 'lucide-react';
 import { NewsCard } from '@/components/shared/news-card';
 import { categoryLabels } from '@/content/labels';
-import { newsCategories } from '@/content/news';
 import { pick, type NewsArticle } from '@/content/types';
 import { cn } from '@/lib/utils';
 
@@ -25,33 +24,39 @@ export function NewsList({
     [active, articles]
   );
 
-  const chips = ['all', ...newsCategories];
+  const presentCategories = useMemo(
+    () => Array.from(new Set(articles.map((a) => a.category))),
+    [articles]
+  );
+  const chips = ['all', ...presentCategories];
 
   return (
     <div>
-      {/* Filter chips */}
-      <div className="flex flex-wrap gap-2.5">
-        {chips.map((c) => {
-          const isActive = active === c;
-          return (
-            <button
-              key={c}
-              onClick={() => setActive(c)}
-              aria-pressed={isActive}
-              className={cn(
-                'rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300',
-                isActive
-                  ? 'bg-blue text-cloud shadow-soft'
-                  : 'border border-border bg-white text-ink hover:border-blue/40 hover:bg-blue/5'
-              )}
-            >
-              {c === 'all'
-                ? t('filterAll')
-                : pick(categoryLabels[c as NewsArticle['category']], locale)}
-            </button>
-          );
-        })}
-      </div>
+      {/* Filter chips — only worth showing once there's more than one category to split by */}
+      {presentCategories.length > 1 && (
+        <div className="flex flex-wrap gap-2.5">
+          {chips.map((c) => {
+            const isActive = active === c;
+            return (
+              <button
+                key={c}
+                onClick={() => setActive(c)}
+                aria-pressed={isActive}
+                className={cn(
+                  'rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300',
+                  isActive
+                    ? 'bg-blue text-cloud shadow-soft'
+                    : 'border border-border bg-white text-ink hover:border-blue/40 hover:bg-blue/5'
+                )}
+              >
+                {c === 'all'
+                  ? t('filterAll')
+                  : pick(categoryLabels[c as NewsArticle['category']], locale)}
+              </button>
+            );
+          })}
+        </div>
+      )}
 
       {filtered.length > 0 ? (
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

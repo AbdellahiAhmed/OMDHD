@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
 import { DuneDivider } from '@/components/shared/dune-divider';
+import { siteConfig } from '@/content/site';
 import { cn } from '@/lib/utils';
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -26,10 +27,10 @@ export function Hero() {
 
   const trust =
     locale === 'ar'
-      ? 'منظمة مستقلة وشفافة · منذ 2015'
+      ? `منظمة مستقلة وشفافة · منذ ${siteConfig.founded}`
       : locale === 'fr'
-        ? 'Indépendante et transparente · depuis 2015'
-        : 'Independent and transparent · since 2015';
+        ? `Indépendante et transparente · depuis ${siteConfig.founded}`
+        : `Independent and transparent · since ${siteConfig.founded}`;
 
   const heroAlt =
     locale === 'ar'

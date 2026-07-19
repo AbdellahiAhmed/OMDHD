@@ -6,6 +6,7 @@ import { SmartImage } from '@/components/shared/smart-image';
 import { Reveal } from '@/components/shared/reveal';
 import { Button } from '@/components/ui/button';
 import { IMG } from '@/content/images';
+import { siteConfig } from '@/content/site';
 
 export function Welcome() {
   const t = useTranslations('Welcome');
@@ -28,7 +29,7 @@ export function Welcome() {
             />
             {/* stat chip */}
             <div className="absolute -bottom-6 rounded-2xl bg-blue p-5 text-cloud shadow-lift ltr:-right-4 rtl:-left-4 sm:ltr:-right-8 sm:rtl:-left-8">
-              <p className="text-3xl font-extrabold">2015</p>
+              <p className="text-3xl font-extrabold">{siteConfig.founded}</p>
               <p className="mt-1 text-xs text-cloud/70">
                 {locale === 'ar' ? 'سنة التأسيس' : locale === 'fr' ? 'Année de fondation' : 'Founded'}
               </p>
