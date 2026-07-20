@@ -5,6 +5,12 @@ const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Shared hosting (cPanel/CloudLinux) caps process memory low enough that
+  // Next's default parallel build workers can OOM. One worker is slower but
+  // fits the constraint.
+  experimental: {
+    cpus: 1,
+  },
   // Pin the project root so Next/Turbopack don't mis-infer it from stray
   // lockfiles higher up the tree (which causes the whole home dir to be scanned).
   outputFileTracingRoot: import.meta.dirname,
