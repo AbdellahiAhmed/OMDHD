@@ -12,7 +12,7 @@ const draftedNews: NewsArticle[] = [
     category: 'training',
     date: '2026-05-18',
     readingTime: 4,
-    cover: IMG.news[0],
+    cover: '/images/formation_image.jpeg',
     featured: true,
     area: 'awareness-training',
     title: {

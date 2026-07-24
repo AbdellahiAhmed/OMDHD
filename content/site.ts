@@ -14,8 +14,8 @@ export const siteConfig = {
   /** Named direct contact line (staff member), shown alongside the general numbers. */
   contact2: {
     name: { ar: 'بنكيلي', fr: 'Bankeily', en: 'Bankeily' },
-    phone: '+222 44 05 06 06',
-    phoneHref: '+22244050606',
+    phone: '+222 44 05 66 66',
+    phoneHref: '+22244056666',
   },
   whatsapp: 'https://wa.me/22222948888',
   address: {
