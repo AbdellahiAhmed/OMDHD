@@ -1,7 +1,7 @@
 # OMDHD — Official Website
 
-**Mauritanian Organization for the Defense of Human Rights and Human Development**
-المنظمة الموريتانية للدفاع عن حقوق الإنسان والتنمية البشرية
+**Mauritanian Organization for Human Rights and Human Development**
+المنظمة الموريتانية لحقوق الإنسان والتنمية الإنسانية
 
 A premium, institutional, multilingual (Arabic · French · English) website built with a strong Mauritanian identity. Arabic RTL is treated as a first-class, native experience — not a mirrored afterthought.
 
