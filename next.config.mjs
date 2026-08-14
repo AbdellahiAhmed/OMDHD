@@ -11,6 +11,15 @@ const nextConfig = {
   experimental: {
     cpus: 1,
   },
+  // `next build` runs ESLint by default. eslint-config-next pulls in
+  // eslint-import-resolver-typescript -> unrs-resolver, which falls back to a
+  // WASM binding when no native binary matches the host platform. Instantiating
+  // that WASM module blows past this host's hard 4GiB address-space limit
+  // (LVE), crashing the build before it even compiles anything. Lint is a
+  // separate concern from building — run `npm run lint` locally/in CI instead.
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   // Pin the project root so Next/Turbopack don't mis-infer it from stray
   // lockfiles higher up the tree (which causes the whole home dir to be scanned).
   outputFileTracingRoot: import.meta.dirname,
